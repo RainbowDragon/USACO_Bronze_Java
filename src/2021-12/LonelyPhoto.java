@@ -26,15 +26,14 @@ public class LonelyPhoto {
         out.close();
     }
 
-    public static long getCount(String str, char c) {
+    static long getCount(String str, char c) {
 
         long result = 0;
 
-        int start = 0;
-        int end = 0;
+        int start, end;
         int count = 0;
         int last = -1;
-        for (end = 0; end < str.length(); end++)
+        for (start = 0, end = 0; end < str.length(); end++)
         {
             if (str.charAt(end) == c) {
                 count++;
@@ -49,15 +48,17 @@ public class LonelyPhoto {
 
             if (count == 1 && end - start >= 2) {
 
-                int endLength = end - last + 1;
-                result += last - start;
+                int front = last - start;
+                int back = end - last;
 
-                if (endLength >= 3) {
-                    result++;
+                if (back == 0) {
+                    front--;
                 }
-                if (endLength == 1) {
-                    result--;
+                else if (back >= 2) {
+                    front++;
                 }
+
+                result += front;
             }
         }
 
