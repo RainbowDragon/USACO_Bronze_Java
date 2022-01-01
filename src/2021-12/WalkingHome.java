@@ -60,7 +60,6 @@ public class WalkingHome {
                 for (int k = 0; k <= K; k++)
                 {
                     if (empty[i][j]) {
-
                         if (i > 0) {
                             grid[i][j][k][1] += grid[i-1][j][k][1];
 
@@ -68,7 +67,6 @@ public class WalkingHome {
                                 grid[i][j][k][1] += grid[i-1][j][k-1][0];
                             }
                         }
-
                         if (j > 0) {
                             grid[i][j][k][0] += grid[i][j-1][k][0];
 
